@@ -1,0 +1,7 @@
+global-theme:
+  css:
+    theme:
+      build/theme.css: {}
+  js:
+    build/app.js: {}
+
