@@ -1,6 +1,11 @@
 {
   "name": "yume",
+  "description": "drupal + tailwind & react",
+  "version": "0.0.1",
   "private": true,
+  "author": {
+    "name": "Tiago Miguel"
+  },
   "scripts": {
     "dev": "npm run clean && npm run dev:js && npm run dev:css",
     "dev:css": "cross-env NODE_ENV=development tailwindcss -i ./src/style.css -o ./build/theme.css -c tailwind.config.ts --postcss postcss.config.js",
@@ -35,6 +40,7 @@
     "postcss-preset-env": "^9.5.12",
     "style-loader": "^4.0.0",
     "tailwindcss": "^3.4.3",
+    "terser-webpack-plugin": "^5.3.10",
     "ts-loader": "^9.5.1",
     "typescript": "^5.4.5",
     "webpack": "^5.91.0",

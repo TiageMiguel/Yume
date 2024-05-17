@@ -1,11 +1,13 @@
 const path = require('path');
-const fs = require('fs');
+const TerserPlugin = require('terser-webpack-plugin');
 
 // Uncomment to separate js bundle in individual files.
+// const fs = require('fs');
+//
 // function generateEntries(entryPointsDir = '') {
 // 	const entries = {};
 // 	const files = fs.readdirSync(entryPointsDir);
-
+//
 // 	files.forEach(file => {
 // 		if (
 // 			file.endsWith('.ts') ||
@@ -17,7 +19,7 @@ const fs = require('fs');
 // 			entries[entryName] = path.resolve(__dirname, entryPointsDir, file);
 // 		}
 // 	});
-
+//
 // 	return entries;
 // }
 
@@ -29,6 +31,7 @@ const config = {
 		filename: 'app.js',
 		clean: true,
 	},
+
 	// Uncomment to separate js bundle in individual files.
 	// entry: generateEntries('./src/app/'),
 	// output: {
@@ -36,6 +39,9 @@ const config = {
 	// 	filename: '[name].js',
 	// 	clean: true,
 	// },
+	resolve: {
+		extensions: ['.ts', '.tsx', '.js', '.jsx'],
+	},
 	devtool: process.env.NODE_ENV === 'production' ? false : 'inline-source-map',
 	mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
 	module: {
@@ -61,8 +67,21 @@ const config = {
 			},
 		],
 	},
-	resolve: {
-		extensions: ['.ts', '.tsx', '.js', '.jsx'],
+	optimization: {
+		minimize: true,
+		minimizer: [
+			new TerserPlugin({
+				terserOptions: {
+					mangle: {
+						reserved: ['Drupal', 'once', '$', 'window'],
+					},
+					format: {
+						comments: false,
+					},
+				},
+				extractComments: false,
+			}),
+		],
 	},
 };
 

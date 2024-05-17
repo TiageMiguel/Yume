@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import ReactDOMClient from 'react-dom/client';
 
 (function (Drupal, once) {
-	Drupal.behaviors.omniExampleCounter = {
+	Drupal.behaviors.yumeExampleCounter = {
 		attach: function (context: HTMLElement) {
 			function init(element: HTMLBodyElement) {
 				const Root = () => {
@@ -14,7 +14,6 @@ import ReactDOMClient from 'react-dom/client';
 						<div>
 							<p className='text-xl text-black/70'>Example #1 — Counter</p>
 							<p className='text-3xl mb-4'>Counter value: {count}</p>
-							<img src={(window as ExtendedWindow).articleFull} alt='here' />
 							<button
 								className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full'
 								onClick={() => setCount(count + 1)}>
@@ -35,7 +34,7 @@ import ReactDOMClient from 'react-dom/client';
 				renderer.render(<Root />);
 			}
 
-			once('omniExampleCounter', '#react-app', context).forEach(init);
+			once('yumeExampleCounter', '#react-app', context).forEach(init);
 		},
 	};
 })(Drupal, once);
