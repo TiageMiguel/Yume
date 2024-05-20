@@ -33,12 +33,14 @@ const config = {
 	},
 
 	// Uncomment to separate js bundle in individual files.
+	//
 	// entry: generateEntries('./src/app/'),
 	// output: {
 	// 	path: path.resolve(__dirname, 'build'),
 	// 	filename: '[name].js',
 	// 	clean: true,
 	// },
+
 	resolve: {
 		extensions: ['.ts', '.tsx', '.js', '.jsx'],
 	},

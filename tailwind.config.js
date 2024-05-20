@@ -1,6 +1,5 @@
-import type { Config } from 'tailwindcss';
-
-const tailwindConfig: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
 	content: [
 		'./*.{theme,inc}',
 		'./templates/**/*.twig',
@@ -10,6 +9,4 @@ const tailwindConfig: Config = {
 		extend: {},
 	},
 	plugins: [],
-} satisfies Config;
-
-export default tailwindConfig;
+};
