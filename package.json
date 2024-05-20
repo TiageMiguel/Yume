@@ -8,13 +8,13 @@
   },
   "scripts": {
     "dev": "npm run clean && npm run dev:js && npm run dev:css",
-    "dev:css": "cross-env NODE_ENV=development tailwindcss -i ./src/style.css -o ./build/theme.css -c tailwind.config.ts --postcss postcss.config.js",
+    "dev:css": "cross-env NODE_ENV=development tailwindcss -i ./src/style.css -o ./build/theme.css -c tailwind.config.js --postcss postcss.config.js",
     "dev:js": "cross-env NODE_ENV=development webpack --mode development",
-    "dev:css:watch": "cross-env NODE_ENV=development tailwindcss -i ./src/style.css -o ./build/theme.css -c tailwind.config.ts --postcss postcss.config.js --watch",
+    "dev:css:watch": "cross-env NODE_ENV=development tailwindcss -i ./src/style.css -o ./build/theme.css -c tailwind.config.js --postcss postcss.config.js --watch",
     "dev:js:watch": "cross-env NODE_ENV=development webpack --mode development --watch",
     "dev:watch": "cross-env NODE_ENV=development concurrently \"npm run dev:js:watch\" \"npm run dev:css:watch\"",
     "build": "npm run clean && npm run build:js && npm run build:css",
-    "build:css": "cross-env NODE_ENV=production tailwindcss -i ./src/style.css -o ./build/theme.css -c tailwind.config.ts --postcss postcss.config.js -m",
+    "build:css": "cross-env NODE_ENV=production tailwindcss -i ./src/style.css -o ./build/theme.css -c tailwind.config.js --postcss postcss.config.js -m",
     "build:js": "cross-env NODE_ENV=production webpack --mode production",
     "clean": "rm -rf ./build"
   },
